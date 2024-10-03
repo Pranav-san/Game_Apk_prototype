@@ -24,7 +24,7 @@ public class AttackState : AIState
         if (aiCharacter.aiCharacterCombatManager.currentTarget == null)
             return SwitchState(aiCharacter, aiCharacter.idle);
 
-        if(aiCharacter.aiCharacterCombatManager.currentTarget.isDead)
+        if(aiCharacter.aiCharacterCombatManager.currentTarget.characterStatsManager.isDead)
             return SwitchState(aiCharacter, aiCharacter.idle);
 
         aiCharacter.characterAnimatorManager.UpdateAnimatorMovementParameters(0,0, false);

@@ -239,6 +239,8 @@ public class PlayerEquipmentManager : CharacterEquipmentManager
         {
             rightWeaponManager.meleeDamageCollider.EnableDamageCollider();
 
+            player.characterSoundFxManager.PlaySoundfx(WorldSoundFXManager.instance.ChooseRandomSoundFxFromArray(player.playerInventoryManager.currentRightHandWeapon.whooshes));
+
         }
         else if(player.isUsingLeftHand)
         {

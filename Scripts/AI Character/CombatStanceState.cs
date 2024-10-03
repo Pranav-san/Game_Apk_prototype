@@ -32,6 +32,9 @@ public class CombatStanceState : AIState
         if (!aiCharacter.navMeshAgent.enabled)
             aiCharacter.navMeshAgent.enabled = true;
 
+
+
+
         //If you want your Ai character to turn and Face towards its target when its outside of its FOV
         if (!aiCharacter.isMoving)
         {

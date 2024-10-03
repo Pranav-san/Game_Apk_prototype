@@ -30,7 +30,7 @@ public class AiUndeadCombatManager : AICharacterCombatManager
         rightDamageCollider.EnableDamageCollider();
     }
 
-    public void DisableRightHandDamageCollider()
+    public void CloseRightHandDamageCollider()
     {
         rightDamageCollider.DisableDamageCollider();
     }

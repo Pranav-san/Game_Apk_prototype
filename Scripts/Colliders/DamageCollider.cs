@@ -41,9 +41,13 @@ public class DamageCollider : MonoBehaviour
         if (damageTarget != null)
         {
             contactPoint = other.GetComponent<Collider>().ClosestPointOnBounds(transform.position);
+           
+
         }
         DamageTarget(damageTarget);
-        
+
+
+
     }
 
     protected virtual void DamageTarget(CharacterManager damageTarget)

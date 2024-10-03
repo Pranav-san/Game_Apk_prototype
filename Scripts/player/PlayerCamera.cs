@@ -259,7 +259,7 @@ public class PlayerCamera : MonoBehaviour
                         //Otherwise Add them to Potential target list 
                         availableTargets.Add(lockOnTarget);
                         
-                        Debug.Log("We made it");
+                        //Debug.Log("We made it");
 
 
                     }

@@ -20,6 +20,7 @@ public class playerManager : CharacterManager
     [HideInInspector] public PlayerEquipmentManager playerEquipmentManager;
     [HideInInspector] public PlayerCombatManager playerCombatManager;
     [HideInInspector] public PlayerInteractionManager playerInteractionManager;
+    [HideInInspector] public CharacterSoundFxManager characterSoundFxManager;
    
     public PlayerUIHUDManager playerUIHUDManager;
 
@@ -35,7 +36,8 @@ public class playerManager : CharacterManager
         playerInventoryManager = GetComponent<PlayerInventoryManager>();
         playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
         playerCombatManager = GetComponent<PlayerCombatManager>();
-        playerInteractionManager = GetComponent<PlayerInteractionManager>();    
+        playerInteractionManager = GetComponent<PlayerInteractionManager>();  
+        characterSoundFxManager = GetComponent<CharacterSoundFxManager>();
     }
 
     protected override void Update()

@@ -38,7 +38,7 @@ public class AICharacterCombatManager : CharacterCombatManager
             if(targetCharacter == aiCharacter) 
                 continue;
 
-            if(targetCharacter.isDead) 
+            if(targetCharacter.characterStatsManager.isDead) 
                 continue;
 
             if(WorldUtilityManager.Instance.CanIDamageThisTarget(aiCharacter.characterGroup, targetCharacter.characterGroup))
@@ -128,10 +128,28 @@ public class AICharacterCombatManager : CharacterCombatManager
 
     public void RotateTowardsAgent(AICharacterManager aiCharacter)
     {
-        if(aiCharacter.isMoving)
+        //Sebbs Logic
+        //if(aiCharacter.isMoving)
+        //{
+        //aiCharacter.transform.rotation = aiCharacter.navMeshAgent.transform.rotation;
+        //}
+
+
+
+        if (currentTarget == null) return;  // Ensure there is a target
+
+        Vector3 directionToTarget = currentTarget.transform.position - aiCharacter.transform.position;
+        directionToTarget.y = 0; // Keep rotation in the horizontal plane
+        directionToTarget.Normalize();
+
+        if (directionToTarget == Vector3.zero)
         {
-            aiCharacter.transform.rotation = aiCharacter.navMeshAgent.transform.rotation;
+            directionToTarget = aiCharacter.transform.forward;
         }
+
+        // Rotate smoothly towards the player
+        Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+        aiCharacter.transform.rotation = Quaternion.Slerp(aiCharacter.transform.rotation, targetRotation, attackRotationSpeed * Time.deltaTime);
     }
 
     public void RotateTowardsTargetWhilestAttacking(AICharacterManager aiCharacter)

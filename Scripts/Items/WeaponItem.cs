@@ -34,4 +34,8 @@ public class WeaponItem : Item
     public WeaponItemBasedAction OH_RB_Action;
 
 
+    [Header("whoosh")]
+    public AudioClip[] whooshes;
+
+
 }
